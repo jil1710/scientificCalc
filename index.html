@@ -25,8 +25,8 @@
     <div class="__main">
         <div class="__calculator">
             <div class="__display">
-                <div class="__input">8+8-8</div>
-                <div class="__output">8</div>
+                <div class="__input"><input type="text" name="input"></div>
+                <div class="__output"><div id="output_display"></div></div>
             </div>
             <div class="__degree">
                 <h5 class="m-0">DEG</h5>
@@ -47,12 +47,12 @@
                             <span style="font-size: 23px;">&#x22BE</span> Trigonometry
                         </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">sin</a></li>
-                            <li><a class="dropdown-item" href="#">cos</a></li>
-                            <li><a class="dropdown-item" href="#">tan</a></li>
-                            <li><a class="dropdown-item" href="#">cot</a></li>
-                            <li><a class="dropdown-item" href="#">sec</a></li>
+                        <ul id="trigonometry" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><button value="sin(" class="dropdown-item" href="#">sin()</button></li>
+                            <li><button value="cos(" class="dropdown-item" href="#">cos()</button></li>
+                            <li><button value="tan(" class="dropdown-item" href="#">tan()</button></li>
+                            <li><button value="cot(" class="dropdown-item" href="#">cot()</button></li>
+                            <li><button value="sec(" class="dropdown-item" href="#">sec()</button></li>
                         </ul>
                     </div>
                 </div>
@@ -63,11 +63,11 @@
                             <span style="font-size: 19px;"><i>&#x0192;</i></span>  <span class="mx-2">Function</span> 
                         </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">ceil</a></li>
-                            <li><a class="dropdown-item" href="#">floor</a></li>
-                            <li><a class="dropdown-item" href="#">abs</a></li>
-                            <li><a class="dropdown-item" href="#">rand</a></li>
+                        <ul id="function" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><button value="ceil(" class="dropdown-item" href="#">ceil()</button></li>
+                            <li><button value="floor(" class="dropdown-item" href="#">floor()</button></li>
+                            <li><button value="abs(" class="dropdown-item" href="#">abs()</button></li>
+                            <li><button onclick="this.value=Math.random()" class="dropdown-item" href="#">rand()</button></li>
                         </ul>
                     </div>
                 </div>
@@ -75,46 +75,46 @@
             
             <div class="__keys">
                 <!-- other functions  -->
-                <div style="position: relative;">
-                    <button value="" style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;">x<sup>3</sup></button>
-                    <button style="color: white; position: absolute;background-color: #3498DB;transition: 0.8s ease-in-out;opacity: 0;">e<sup>2</sup></button>
-                    <button style="color: white; position: absolute;background-color: #3498DB;transition: 0.6s ease-in-out;opacity: 0;">2<sup>x</sup></button>
+                <div id="extra_field" style="position: relative;">
+                    <button value="cube" style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;">x<sup>3</sup></button>
+                    <button value="cbrt" style="color: white; position: absolute;background-color: #3498DB;transition: 0.8s ease-in-out;opacity: 0;">&#x221B;x</button>
+                    <button value="2^" style="color: white; position: absolute;background-color: #3498DB;transition: 0.6s ease-in-out;opacity: 0;">2<sup>x</sup></button>
                     <button style="position: absolute;" onclick="showOpt(this)">2<sup>nd</sup></button>
                 </div>
-                <div><button value="&pi;">&pi;</button></div>
-                <div><button value="e">e</button></div>
+                <div><button value="3.141592653589793">&pi;</button></div>
+                <div><button value="2.718281828459045">e</button></div>
                 <div><button value="C">C</button></div>
                 <div><button value="DE"><i class="fa fa-delete-left"></i></button></div>
-                <div><button value="x&sup2;">x&sup2;</button></div>
-                <div><button value="="><sup>1</sup>/<sub>x</sub></button></div>
-                <div><button value="|x|">|x|</button></div>
+                <div><button value="sqr">x&sup2;</button></div>
+                <div><button value="1/"><sup>1</sup>/<sub>x</sub></button></div>
+                <div><button value="abs">|x|</button></div>
                 <div><button value="exp">exp</button></div>
                 <div><button value="mod">mod</button></div>
-                <div><button value="&#x221A;x">&#x221A;x</button></div>
+                <div><button value="sqrt">&#x221A;x</button></div>
                 <div><button value="(">(</button></div>
                 <div><button value=")">)</button></div>
                 <div><button value="n!">n!</button></div>
                 <div><button value="/">&#xf7;</button></div>
-                <div><button value="x^y">x<sup>y</sup></button></div>
+                <div><button value="^">x<sup>y</sup></button></div>
                 <div><button value="7">7</button></div>
                 <div><button value="8">8</button></div>
                 <div><button value="9">9</button></div>
                 <div><button value="*">&#xd7;</button></div>
-                <div><button value="10^x">10<sup>x</sup></button></div>
+                <div><button value="10^">10<sup>x</sup></button></div>
                 <div><button value="4">4</button></div>
                 <div><button value="5">5</button></div>
                 <div><button value="6">6</button></div>
                 <div><button value="-">-</button></div>
-                <div><button value="log">log</button></div>
+                <div><button value="log10(">log<sub>10</sub></button></div>
                 <div><button value="1">1</button></div>
                 <div><button value="2">2</button></div>
                 <div><button value="3">3</button></div>
                 <div><button value="+">+</button></div>
-                <div><button value="ln">ln</button></div>
+                <div><button value="ln(">ln</button></div>
                 <div><button value="+-">&#xb1;</button></div>
                 <div><button value="0">0</button></div>
                 <div><button value=".">.</button></div>
-                <div><button value="=">=</button></div>
+                <div><button style="font-size: 12px;" value="=">=</button></div>
 
             </div>
         </div>
