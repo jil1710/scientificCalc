@@ -119,19 +119,19 @@ Array.from(keys.children).slice(1).forEach((ele) => {
         if(e.target.value=='abs'){
             input.value = 'abs(' + input.value.replace("abs","") + ')';
             operation = 'Math.'.concat(input.value)
-
+            
         }
         if(e.target.value=='sqrt')
         {
             input.value = 'sqrt(' + input.value.replace("sqrt","") + ')';
             operation = 'Math.'.concat(input.value)
         }
-
-
-        if(e.target.value=='log10')
+        
+        
+        if(e.target.value=='log10(')
         {
-            let fun = "Math.";
-            operation+=fun 
+            let fun = "Math.log10(";
+            operation=operation.replace("log10(","")+fun 
         }
 
         if(e.target.value == '10^'){
@@ -152,6 +152,20 @@ Array.from(keys.children).slice(1).forEach((ele) => {
 
         }
 
+        if(e.target.value=='fact('){
+            
+            var fact = 1;
+            var num = parseInt(input.value.replace("fact(",""));
+            for(var i=1;i<=num;i++){
+                fact*=i;
+
+            }
+            input.value = 'fact('+input.value.replace('fact(',"")+')'
+            output.innerHTML = fact;
+            output.style.opacity = 1;
+            output.style.top = 0;
+        }
+
         if (e.target.value == '=') {
 
             try{
@@ -166,10 +180,62 @@ Array.from(keys.children).slice(1).forEach((ele) => {
                 input.value=""
             }
         }
-        console.log(operation);
+        // console.log(operation);
     }
 
 })
 
+// to store the input into memory
+var bs = document.getElementById('bottom-sheet');
+var data = localStorage.getItem("MS")?.split(',')?.slice(1)
+var getItems = localStorage.getItem("MS")
+function memoryStore(){
+    var old = localStorage.getItem("MS");
+    if(old === null) old = "";
+    localStorage.setItem("MS", [old,input.value]);
+    data = localStorage.getItem('MS')?.split(',')?.slice(1)
+    bs.innerHTML = ""
+    showMemory()
+}
 
-// console.log()
+
+function showMemory(){
+
+    console.log(getItems);
+    if(getItems==null)
+    {
+        bs.innerHTML = "There's no history!"
+    }
+    else{
+        console.log(data);
+        data.reverse().forEach(ele=>{
+            bs.innerHTML += `<li style="padding:4px 8px;display: block;background-color: #d1e6f3;border-radius: 6px;margin-bottom:2px">${ele}</li>`
+        })
+    }
+}
+
+showMemory()
+
+function clearMemory(){
+    localStorage.removeItem('MS')
+}
+
+function readMemory(){
+    if(bs?.firstElementChild?.innerHTML){
+
+        input.value = bs.firstElementChild.innerHTML;
+        operation = bs.firstElementChild.innerHTML;
+    }
+}
+
+Array.from(bs.children).forEach((ele,index)=>{
+    ele.onclick = function(e){
+        console.log(data);
+        data.splice(index,1)
+        localStorage.setItem("MS",[data])
+        ele.remove()
+        // console.log(data);
+    }
+})
+
+// console.log(Math.log10)

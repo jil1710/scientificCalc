@@ -51,8 +51,7 @@ body {
 .__calculator .__display .__output {
     padding: 0px 10px 4px 0px;
     float: right;
-    font-size: 45px;
-    /* overflow-x: auto; */
+    font-size: 20px;
 }
 .__calculator .__display .__output div{
     
@@ -95,9 +94,7 @@ body {
     font-size: 1rem;
     cursor: pointer;
 }
-.__calculator .__setting h5:nth-child(-n+2){
-    color: rgb(180, 180, 180);
-}
+
 .__calculator .__setting h5:hover {
     background-color: rgba(236, 236, 236, 0.795);
 }
@@ -108,6 +105,10 @@ body {
     gap: 23px;
     align-items: center;
 }
+.bottom-sheet{
+    max-width: 100%;
+    overflow: auto;
+}
 .__calculator .__keys{
     display: grid;
     gap: 0.3rem;
@@ -115,6 +116,7 @@ body {
     row-gap: 1rem;
     grid-auto-rows: 40px;
     padding: 10px;
+    overflow-y: hidden;
 }
 .__calculator .__keys div button{
     cursor: pointer;
