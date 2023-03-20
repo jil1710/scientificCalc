@@ -27,7 +27,7 @@
     <div class="__main">
         <div class="__calculator">
             <div class="__display">
-                <div class="__input"><input type="text" name="input"></div>
+                <div class="__input"><input type="text" name="input" value=""></div>
                 <div class="__output">
                     <div id="output_display"></div>
                 </div>
@@ -41,8 +41,8 @@
             <div class="__setting">
                 <h5 class="m-0" onclick="clearMemory()">MC</h5>
                 <h5 class="m-0" onclick="readMemory()">MR</h5>
-                <h5 class="m-0">M+</h5>
-                <h5 class="m-0">M-</h5>
+                <h5 class="m-0" onclick="addMemory()">M+</h5>
+                <h5 class="m-0" onclick="subMemory()">M-</h5>
                 <h5 class="m-0" onclick="memoryStore()">MS</h5>
             </div>
             <div class="__function">
@@ -87,8 +87,14 @@
                 </ul>
                 <!-- other functions  -->
                 <div id="extra_field" style="position: relative;z-index: 99;">
+                    <button value="yrootx"
+                        style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;"><sup>y</sup><sub>&#x221A;x</sub></button>
                     <button value="cube"
                         style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;">x<sup>3</sup></button>
+                    <button value="e^"
+                        style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;">e<sup>2</sup></button>
+                    <button value="logxy"
+                        style="color: white; position: absolute;background-color: #3498DB;transition: 1s ease-in-out;opacity: 0;">log<sub>y</sub>x</button>
                     <button value="cbrt"
                         style="color: white; position: absolute;background-color: #3498DB;transition: 0.8s ease-in-out;opacity: 0;">&#x221B;x</button>
                     <button value="2^"
@@ -99,12 +105,12 @@
                 <div><button value="2.718281828459045">e</button></div>
                 <div><button value="C">C</button></div>
                 <div><button value="DE"><i class="fa fa-delete-left"></i></button></div>
-                <div><button value="sqr">x&sup2;</button></div>
+                <div><button value="sqr(">x&sup2;</button></div>
                 <div><button value="1/"><sup>1</sup>/<sub>x</sub></button></div>
                 <div><button value="abs">|x|</button></div>
                 <div><button value="exp">exp</button></div>
                 <div><button value="mod">mod</button></div>
-                <div><button value="sqrt">&#x221A;x</button></div>
+                <div><button value="sqroot(">&#x221A;x</button></div>
                 <div><button value="(">(</button></div>
                 <div><button value=")">)</button></div>
                 <div><button value="fact(">n!</button></div>
