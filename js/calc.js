@@ -307,7 +307,7 @@ Array.from(keys.children).slice(1).forEach((ele) => {
                 equal = false
             } else {
                 try {
-                    output.innerHTML = eval(operation.slice(0, -1))
+                    output.innerHTML = eval(operation.slice(0, -1)).toFixed()
                     output.style.opacity = 1;
                     output.style.top = 0;
                 } catch (err) {
